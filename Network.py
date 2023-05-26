@@ -12,6 +12,7 @@ class Layer:
         self.dropout_mask = None  # Required for saving the dropped neurons
 
     def initialize_weights(self, input_size):
+        # Xavier's initialization for weights and biases
         xavier_stddev = np.sqrt(2 / (input_size + self.output_size))
         self.W = np.random.randn(input_size, self.output_size) * xavier_stddev
         self.b = np.random.randn(self.output_size) * xavier_stddev
@@ -93,7 +94,7 @@ class Network:
                 if problem_type == 'regression':  # MSE and gradient for the regression problem
                     loss = np.mean((outputs - targets) ** 2) / 2
                     grad_output = (outputs - targets) / len(targets)
-                elif problem_type == 'classification':
+                elif problem_type == 'classification':  # CEL and gradient for the binary classification problem
                     loss = -np.mean(targets * np.log(outputs) + (1 - targets) * np.log(1 - outputs))
                     grad_output = (-targets / outputs + (1 - targets) / (1 - outputs)) / len(targets)
                 else:
