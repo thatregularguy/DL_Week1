@@ -4,4 +4,4 @@ Given Train and Test datas are concatenated and then spiltted after shuffling, j
 During few tries the network's prediction's MCC score was about 0.250 - 0.380.
 
 In Network.py I created a DenseNetwork, which can do both regression and classification.
-The only thing to be careful is the ReLU activation, which can cause calculation errors.
+The only thing to be careful is the ReLU activation, which can cause calculation errors sometimes.
